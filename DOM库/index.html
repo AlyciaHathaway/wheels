@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>我的DOM库</title>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+
+	<script src="DOM.js"></script>
+	<script>
+		console.assert(typeof $ === 'function');
+		let items = $('li');
+		console.log(items);
+	</script>
+</body>
+</html>
