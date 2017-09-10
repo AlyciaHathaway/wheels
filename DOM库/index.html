@@ -16,7 +16,11 @@
 	<script>
 		console.assert(typeof $ === 'function');
 		let items = $('li');
-		console.log(items);
+		console.assert(items.on !== undefined);
+
+		items.on('click', function() {
+			console.log('click')
+		})
 	</script>
 </body>
 </html>
