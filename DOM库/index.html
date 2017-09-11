@@ -38,6 +38,15 @@
 		let textList = items.text();
 		console.log(textList);
 
+		console.assert(items.addEventListener === undefined);
+
+		let item = items.get(0);
+
+		console.assert(item.tagName === 'LI');
+		console.assert(item.addEventListener !== undefined);
+		console.assert(item === items[0]);
+
+		console.log('运行完毕');
 	</script>
 </body>
 </html>
