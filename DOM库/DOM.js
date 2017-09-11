@@ -17,6 +17,15 @@ window.$ = function(selector) {
 		for (let i=0; i<array.length; i++) {
 			array[i].classList.add(className)
 		}
+		// 返回array使其和items等价，并且能够链式调用
+		return array
 	};
+
+	array.removeClass = function(className) {
+		for (let i=0; i<array.length; i++) {
+			array[i].classList.remove(className)
+		}
+	};
+
 	return array;
 };

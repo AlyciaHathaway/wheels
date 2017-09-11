@@ -5,17 +5,20 @@
 	<title>我的DOM库</title>
 	<style>
 		.hi {
-			color: red;
+			color: blue;
 			border: 1px solid;
+		}
+		.error {
+			color: red;
 		}
 	</style>
 </head>
 <body>
 	<ul>
-		<li>1</li>
-		<li>2</li>
-		<li>3</li>
-		<li>4</li>
+		<li class="error">1</li>
+		<li class="error">2</li>
+		<li class="error">3</li>
+		<li class="error">4</li>
 	</ul>
 
 	<script src="DOM.js"></script>
@@ -28,7 +31,9 @@
 			console.log('click')
 		});
 
-		items.addClass('hi');
+		items.addClass('hi').removeClass('error');
+
+		console.assert(items.addClass('hi') === items);
 	</script>
 </body>
 </html>
