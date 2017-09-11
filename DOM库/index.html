@@ -3,6 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>我的DOM库</title>
+	<style>
+		.hi {
+			color: red;
+			border: 1px solid;
+		}
+	</style>
 </head>
 <body>
 	<ul>
@@ -20,7 +26,9 @@
 
 		items.on('click', function() {
 			console.log('click')
-		})
+		});
+
+		items.addClass('hi');
 	</script>
 </body>
 </html>
