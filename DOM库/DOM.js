@@ -44,5 +44,9 @@ window.$ = function(selector) {
 		}
 	};
 
+	array.get = function(index) {
+		return array[index]
+	};
+
 	return array;
 };
