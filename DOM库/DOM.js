@@ -25,6 +25,23 @@ window.$ = function(selector) {
 		for (let i=0; i<array.length; i++) {
 			array[i].classList.remove(className)
 		}
+		return array
+	};
+
+	array.text = function(value) {
+		if (value !== undefined) {
+			for (let i=0; i<array.length; i++) {
+				array[i].textContent = value
+			}
+			return array
+		}else{
+			let result = [];
+			for (let i=0; i<array.length; i++) {
+				result.push(array[i].textContent)
+			}
+			// 但在jQuery里使用text方法取值只返回第一个元素
+			return result
+		}
 	};
 
 	return array;

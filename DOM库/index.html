@@ -31,9 +31,13 @@
 			console.log('click')
 		});
 
+		console.assert(items.addClass('hi') === items);
 		items.addClass('hi').removeClass('error');
 
-		console.assert(items.addClass('hi') === items);
+		items.text('你好');
+		let textList = items.text();
+		console.log(textList);
+
 	</script>
 </body>
 </html>
