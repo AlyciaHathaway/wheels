@@ -1,4 +1,6 @@
-
+// $接收一个字符串/元素/元素列表
+// 返回一个新的数组
+// 这个数组有on、addClass、removeClass... API
 window.$ = function(selectorOrNode) {
 	let array = [];
 	if (typeof selectorOrNode === 'string') {
@@ -9,6 +11,10 @@ window.$ = function(selectorOrNode) {
 		}
 	}else if (selectorOrNode instanceof Element) {
 		array.push(selectorOrNode)
+	}else if (selectorOrNode instanceof Array) {
+		for (let i=0; i<selectorOrNode.length; i++) {
+			array.push(selectorOrNode[i])
+		}
 	}
 
 	// 添加on方法
@@ -55,13 +61,13 @@ window.$ = function(selectorOrNode) {
 
 	array.siblings = function() {
 		let children = array[0].parentNode.children;
-		let result = [];
+		let resultArray = [];
 		for (let i=0; i<children.length; i++) {
 			if (children[i] !== array[0]) {
-				result.push(children[i])
+				resultArray.push(children[i])
 			}
 		}
-		return result;
+		return $(resultArray);
 	};
 	return array;
 };

@@ -53,9 +53,10 @@
 		// $item是第一个li
 		console.assert($item[0] === item);
 		// 希望$item.siblings()返回它的兄弟
-		console.log($item.siblings());
+		$item.siblings();
 
-
+		$item.siblings().addClass('hi2');
+		$('li:nth-child(2)').siblings().addClass('error');
 		console.log('运行完毕');
 	</script>
 </body>
