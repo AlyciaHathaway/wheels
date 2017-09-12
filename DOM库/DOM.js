@@ -67,7 +67,14 @@ window.$ = function(selectorOrNode) {
 				resultArray.push(children[i])
 			}
 		}
-		return $(resultArray);
+		let items = $(resultArray);
+		items.previousSelection = array;
+		return items;
 	};
+
+	array.end = function() {
+		return array.previousSelection
+	};
+
 	return array;
 };

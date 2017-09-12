@@ -56,7 +56,14 @@
 		$item.siblings();
 
 		$item.siblings().addClass('hi2');
-		$('li:nth-child(2)').siblings().addClass('error');
+
+		let $li = $('li:nth-child(2)'); // array
+		$li.siblings().addClass('error');
+		console.assert($li.siblings().previousSelection === $li);
+		console.assert($li.siblings().end() === $li.siblings().previousSelection);
+
+		$li.siblings().removeClass('error').end()
+			.addClass('error');
 		console.log('运行完毕');
 	</script>
 </body>
