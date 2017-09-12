@@ -46,6 +46,16 @@
 		console.assert(item.addEventListener !== undefined);
 		console.assert(item === items[0]);
 
+		// item传给$，产生一个新的对象，新的item能对旧的item进行操作
+		let $item = $(item);
+		console.assert(typeof item.on === 'undefined');
+		console.assert(typeof $item.on === 'function');
+		// $item是第一个li
+		console.assert($item[0] === item);
+		// 希望$item.siblings()返回它的兄弟
+		console.log($item.siblings());
+
+
 		console.log('运行完毕');
 	</script>
 </body>

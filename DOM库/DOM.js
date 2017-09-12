@@ -1,11 +1,16 @@
 
-window.$ = function(selector) {
+window.$ = function(selectorOrNode) {
 	let array = [];
-	// items是对象，不是数组
-	let items = document.querySelectorAll(selector);
-	for (let i=0; i<items.length; i++) {
-		array.push(items[i])
+	if (typeof selectorOrNode === 'string') {
+		// items是对象，不是数组
+		let items = document.querySelectorAll(selectorOrNode);
+		for (let i=0; i<items.length; i++) {
+			array.push(items[i])
+		}
+	}else if (selectorOrNode instanceof Element) {
+		array.push(selectorOrNode)
 	}
+
 	// 添加on方法
 	array.on = function(eventType, fn) {
 		for (let i=0; i<array.length; i++) {
@@ -48,5 +53,15 @@ window.$ = function(selector) {
 		return array[index]
 	};
 
+	array.siblings = function() {
+		let children = array[0].parentNode.children;
+		let result = [];
+		for (let i=0; i<children.length; i++) {
+			if (children[i] !== array[0]) {
+				result.push(children[i])
+			}
+		}
+		return result;
+	};
 	return array;
 };
