@@ -13,6 +13,9 @@ window.$ = function(selectorOrNode) {
 		array.push(selectorOrNode)
 	}else if (selectorOrNode instanceof Array) {
 		for (let i=0; i<selectorOrNode.length; i++) {
+			if (!(selectorOrNode[i] instanceof Element)) {
+				continue
+			}
 			array.push(selectorOrNode[i])
 		}
 	}
@@ -40,6 +43,7 @@ window.$ = function(selectorOrNode) {
 	};
 
 	array.text = function(value) {
+		// 函数重载
 		if (value !== undefined) {
 			for (let i=0; i<array.length; i++) {
 				array[i].textContent = value
@@ -67,12 +71,17 @@ window.$ = function(selectorOrNode) {
 				resultArray.push(children[i])
 			}
 		}
+		// 新数组
 		let items = $(resultArray);
+		// 旧数组
+		// 这里的array是传给$的第一个li元素
 		items.previousSelection = array;
 		return items;
 	};
 
 	array.end = function() {
+		// 这里的array是调用end的它的返回值，也就是item返回的新数组
+		// 如果直接调用end会不会有bug？对end需求不理解
 		return array.previousSelection
 	};
 
