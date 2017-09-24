@@ -8,6 +8,7 @@
 <body>
 	<button id="button1">open a window</button>
 	<button id="button2">search</button>
+	<button id="button3">set</button>
 
 	<script>
 		button1.onclick = function() {
@@ -17,6 +18,10 @@
 			console.log($.bom.search('a'));
 			console.log($.bom.search('b'));
 			console.log($.bom.search('c'));
+			console.log($.bom.search('a', 'frank'));
+		};
+		button3.onclick = function() {
+			console.log($.bom.search('a', 'frank'));
 		}
 	</script>
 
