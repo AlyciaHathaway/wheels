@@ -7,10 +7,16 @@
 </head>
 <body>
 	<button id="button1">open a window</button>
+	<button id="button2">search</button>
 
 	<script>
 		button1.onclick = function() {
 			$.bom.openAtCenter(900, 650, 'iframe.html');
+		};
+		button2.onclick = function() {
+			console.log($.bom.search('a'));
+			console.log($.bom.search('b'));
+			console.log($.bom.search('c'));
 		}
 	</script>
 
