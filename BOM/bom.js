@@ -29,7 +29,7 @@ $.bom = {
 			for (let i=0; i<searchArray.length; i++) {
 				let parts = searchArray[i].split('=');
 				// result['a'] === '1'
-				result[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1])
+				result[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1] || '')
 			}
 			return result;
 		};
