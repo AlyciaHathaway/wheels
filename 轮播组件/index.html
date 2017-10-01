@@ -29,15 +29,23 @@
 		}
 
 		/*使用者写的CSS*/
+
+		.slides {
+			position:           relative;
+		}
+		.slides>.controls {
+			position:           absolute;
+			bottom:             0;
+		}
+		.view {
+			transform:          translateX(0px);
+			transition:         all 1s;
+		}
 		.slide {
 			display:            flex;
 			justify-content:    center;
 			align-items:        center;
 			font-size:          60px;
-		}
-		.view {
-			transform:          translateX(0px);
-			transition:         all 1s;
 		}
 	</style>
 </head>
@@ -49,5 +57,9 @@
 			<div class="slide">3</div>
 		</div>
 	</div>
+
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="slides.js"></script>
+
 </body>
 </html>
