@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		body {
+			margin:             0;
+			padding:            10px 100px;
+		}
+		.slides {
+			height:             400px;
+			background:         blue;
+			overflow:           hidden;
+		}
+		.view {
+			height:             100%;
+			background:         green;
+			overflow:           visible;
+			display:            flex;
+		}
+		.slide {
+			height:             100%;
+			background:         red;
+			box-sizing:         border-box;
+			border:             1px solid;
+			width:              100%;
+			flex-shrink:        0;
+		}
+
+		/*使用者写的CSS*/
+		.slide {
+			display:            flex;
+			justify-content:    center;
+			align-items:        center;
+			font-size:          60px;
+		}
+		.view {
+			transform:          translateX(0px);
+			transition:         all 1s;
+		}
+	</style>
+</head>
+<body>
+	<div class="slides">
+		<div class="view">
+			<div class="slide">1</div>
+			<div class="slide">2</div>
+			<div class="slide">3</div>
+		</div>
+	</div>
+</body>
+</html>
