@@ -9,6 +9,7 @@ window.slides = function(element) {
 	let width = $el.width();
 	let count = $el.find('.slide').length;
 	let currentIndex = 0;
+	let timerID;
 
 	// 计算轮播圆点的个数，展示在view层上面
 	let $ol = $('<ol class="controls"></ol>');
@@ -23,6 +24,15 @@ window.slides = function(element) {
 		let index = $li.index();
 		goToSlide(index);
 	});
+
+	// 鼠标悬浮时暂停轮播
+	$view.on('mouseenter', function() {
+		window.clearInterval(timerID)
+	});
+	$view.on('mouseleave', function() {
+		autoPlay()
+	});
+
 	// 检查保护
 	function goToSlide(index) {
 		if (index < 0) {
@@ -38,9 +48,14 @@ window.slides = function(element) {
 	}
 
 	// 自动播放
-	setInterval(function() {
-		goToSlide(currentIndex + 1)
-	},2000)
+	function autoPlay() {
+		timerID = setInterval(function() {
+			goToSlide(currentIndex + 1)
+		},3000)
+	}
+
+	autoPlay();
+
 };
 
 
