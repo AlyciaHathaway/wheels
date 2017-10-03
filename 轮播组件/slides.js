@@ -40,6 +40,32 @@ window.slides = function(element) {
 		}else if (index >= count) {
 			index = 0
 		}
+		// 连续轮播
+		if (index === 0) {
+			// 克隆假1，放到3后面
+			let $li = $el.find('.slide').eq(0).clone();
+			$li.appendTo($view);
+			let number = - width * count;
+			$view.css({
+				transform:  `translateX(${number}px)`
+			});
+			// 监听过渡动画结束
+			$view.one('transitionend', function() {
+				console.log('过渡效果结束');
+				$li.remove();
+				let oldTrasition = $view.css('transition');
+				$view.css({
+					transition: 'none',
+					transform:  `translateX(0px)`
+				});
+				// offset强制分开上下两个CSS渲染
+				$view.offset();
+				$view.css('transition', oldTrasition);
+				currentIndex = index;
+			});
+			// 不再执行后续语句
+			return
+		}
 		let number = - width * index;
 		$view.css({
 			transform:  `translateX(${number}px)`
@@ -66,4 +92,5 @@ window.slides = function(element) {
 
 
 // 使用者代码
-slides(document.querySelector('.slides'));
+slides(document.querySelector('.slides')[0]);
+slides(document.querySelector('.slides')[1]);
