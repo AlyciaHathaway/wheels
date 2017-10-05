@@ -5,9 +5,22 @@
 	<meta charset="UTF-8">
 	<style>
 		.dialog {
-			width:  100px;
-			height: 100px;
+			min-width:  100px;
 			background: red;
+		}
+		.dialog-wrapper {
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background: hsla(0,0%,0%,0.5);
+			justify-content: center;
+			align-items: center;
+		}
+		.dialog-wrapper.active {
+			display: flex;
 		}
 	</style>
 </head>
@@ -19,7 +32,7 @@
 	<script>
 		// 使用者
 		btn.onclick = function() {
-			var api = dialog({
+			let api = dialog({
 				title: '标题',
 				content: '这是一个对话框',
 				buttons: [

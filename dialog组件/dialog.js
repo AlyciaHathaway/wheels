@@ -7,7 +7,11 @@ window.dialog = function(options) {
 
 	let api = {
 		close: function() {
-			$div.hide()
+			// 尽量不用JS操作样式，比如show() hide()函数，hide后再show不能识别原来设置的display：flex
+			$div.removeClass('active')
+		},
+		show: function() {
+			$div.addClass('active')
 		}
 	};
 
@@ -15,7 +19,10 @@ window.dialog = function(options) {
 	return api;
 
 	function generateHTML() {
-		let $div = $('<div class="dialog"></div>');
+		let $divWrapper = $('<div class="dialog-wrapper active"></div>');
+
+		let $div = $('<div class="dialog"></div>')
+			.appendTo($divWrapper);
 
 		let $title = $('<div class="dialog-title"></div>')
 			.text(title).appendTo($div);
@@ -43,6 +50,6 @@ window.dialog = function(options) {
 		}
 		$buttons.appendTo($div);
 
-		return $div
+		return $divWrapper
 	}
 };
