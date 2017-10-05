@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-has">
+<head>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<meta charset="UTF-8">
+	<style>
+		.dialog {
+			width:  100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">点我</button>
+	<div id="outputDiv"></div>
+
+	<script src="dialog.js"></script>
+	<script>
+		// 使用者
+		btn.onclick = function() {
+			var api = dialog({
+				title: '标题',
+				content: '这是一个对话框',
+				buttons: [
+					{
+						text: '确定',
+						action: function() {
+							outputDiv.textContent = 'hi'
+						}
+					},
+					{
+						text: '取消'
+					}
+				]
+			});
+			api.close()
+		};
+	</script>
+</body>
+</html>
